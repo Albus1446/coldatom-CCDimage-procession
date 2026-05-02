@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "coldatom-CCDimage-procession"
+version = "0.1.0"
+description = "Absorption imaging analysis for cold atom experiments"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "TakatoPhy"},
+]
+keywords = ["cold-atoms", "absorption-imaging", "atomic-physics", "MOT", "BEC", "temperature"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "numpy",
+    "scipy",
+    "Pillow",
+]
+
+[project.optional-dependencies]
+fits = ["astropy"]
+hdf5 = ["h5py"]
+gui = ["PyQt5", "matplotlib"]
+all = ["astropy", "h5py", "PyQt5", "matplotlib"]
+
+[project.scripts]
+coldatom-CCDimage-procession = "coldatom_imaging.cli:main"
+
+[project.urls]
+Repository = "https://github.com/TakatoPhy/coldatom-imaging"
+
+[tool.setuptools.packages.find]
+include = ["coldatom_imaging*"]
